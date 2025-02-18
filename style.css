@@ -1,0 +1,23 @@
+body {
+    background-color: #e6ecff; /* Голубий колір */
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Додаткові стилі */
+.topic-item {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.topic-item:hover {
+    background-color: #e2e6ea;
+}
+
