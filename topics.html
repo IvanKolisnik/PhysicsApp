@@ -14,13 +14,18 @@
 </head>
 <body>
     <div class="container mt-2">
-        <h1 class="text-center mb-4" style="border: 2px solid #070011; padding: 10px; border-radius: 8px;">Список тем з фізики</h1>
+        <h1 class="text-center mb-4" style="border: 2px solid #070011; padding: 10px; border-radius: 8px;">Вибір теми</h1>
         
         <!-- Список тем -->
         <div class="list-group">
-            <a href="mechanics.html" class="list-group-item topic-item">
-                <i class="fas fa-cogs"></i> Механіка
+            <a href="mechanics.html" class="list-group-item topic-item d-flex align-items-center">
+                <i class="fas fa-cogs"></i> <span class="ms-1">Механіка</span>
+                <button class="btn btn-sm btn-outline-secondary ms-auto" onclick="toggleDescription(event, 'mechanicsDesc', this)">&#9660;</button>
             </a>
+            <p id="mechanicsDesc" class="description text-muted mt-2" style="display: none;">
+                Механіка – це розділ фізики, що вивчає механічний рух тіл та зміни які відбуваються при їх взаємодії. 
+            </p>
+            
             <a href="#" class="list-group-item topic-item">
                 <i class="fas fa-thermometer-half"></i> Термодинаміка
             </a>
