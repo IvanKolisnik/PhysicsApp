@@ -39,8 +39,14 @@ function calculateForce() {
 
     const force = m * a;
 
-    document.getElementById('resultText').innerText = force;
+    document.getElementById('resultText').innerText = `Сила: ${force} Н`;
     document.getElementById('resultMessage').style.display = 'block';
+}
+
+function clearFields1() {
+    document.getElementById('m').value = ''; // Очистка маси
+    document.getElementById('a').value = ''; // Очистка прискорення
+    document.getElementById('resultMessage').style.display = 'none'; // Приховати результат
 }
 
 // Функція для обчислення швидкості за формулою v = Δx / Δt
@@ -58,8 +64,14 @@ function calculateVelocity() {
     const velocity = deltaX / deltaT;
 
     // Виведення результату
-    document.getElementById('resultText').innerText = velocity;
+    document.getElementById('resultText').innerText = `Швидкість: ${velocity} м/с`;
     document.getElementById('resultMessage').style.display = 'block';
+}
+
+function clearFields2() {
+    document.getElementById('deltaX').value = ''; 
+    document.getElementById('deltaT').value = ''; 
+    document.getElementById('resultMessage').style.display = 'none'; 
 }
 
 function calculateKineticEnergy() {
@@ -73,6 +85,28 @@ function calculateKineticEnergy() {
 
     const energy = 0.5 * mass * Math.pow(velocity, 2);
 
-    document.getElementById('resultText').innerText = energy;
+    document.getElementById('resultText').innerText = `Кінетична енергія: ${energy} Дж.`;
     document.getElementById('resultMessage').style.display = 'block';
 }
+
+function clearFields() {
+    document.getElementById('massKE').value = ''; 
+    document.getElementById('velocityKE').value = ''; 
+    document.getElementById('resultMessage').style.display = 'none'; 
+}
+
+
+function toggleDescription(event, id, btn) {
+    event.preventDefault(); // Запобігає переходу за посиланням, якщо це необхідно
+    
+    const desc = document.getElementById(id);
+    
+    // Перевірка, чи відображається опис
+    if (desc.style.display === "none") {
+        desc.style.display = "block"; // Показує опис
+        btn.innerHTML = "&#9650;"; // Змінює стрілку на вгору
+    } else {
+        desc.style.display = "none"; // Сховує опис
+        btn.innerHTML = "&#9660;"; // Змінює стрілку на вниз
+    }
+} 
