@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кінематика - Формули</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4" style="border: 2px solid #070011; padding: 10px; border-radius: 8px;">Кінематика - Формули</h1>
+        
+        <div class="form-group">
+            <label for="formulaSelect">Виберіть формулу:</label>
+            <select class="form-control" id="formulaSelect" onchange="selectFormula()">
+                <option value="">Оберіть формулу</option>
+                <option value="v = Δx / Δt">Швидкість: v = Δx / Δt</option>
+            </select>
+        </div>
+                
+        <!-- Формула v = Δx / Δt -->
+        <div id="velocityForm" style="display: none;">
+            <div class="form-group">
+                <p>Формула визначає швидкість як відношення пройденої відстані до часу, за який ця відстань була пройдена.<br>
+                    v — швидкість об'єкта, що визначається як зміна його положення (відстань) за певний проміжок часу.<br>
+                    Δx — зміщення об'єкта, тобто відстань, яку він пройшов.<br>
+                    Δt — час, за який відбулося це зміщення.
+                </p>
+                <label for="deltaX">Δx (зміщення) [м]</label>
+                <input type="number" class="form-control" id="deltaX" placeholder="Введіть зміщення" required>
+            </div>
+            <div class="form-group">
+                <label for="deltaT">Δt (час) [с]</label>
+                <input type="number" class="form-control" id="deltaT" placeholder="Введіть час" required>
+            </div>
+            <button type="button" class="btn btn-primary mt-3" onclick="calculateVelocity()">Обчислити швидкість</button>
+            <button class="btn btn-danger mt-3" onclick="clearFields2()">Очистити</button> 
+        </div>
+
+            <!-- Результат -->
+        <div id="resultMessage" class="mt-4" style="display: none;">
+            <div class="alert alert-info" role="alert">
+                <strong>Результат:</strong> <span id="resultText"></span>
+            </div>
+        </div>
+    </div>
+    
+    <a href="topics.html" class="btn btn-outline-primary mt-3 w-100">Назад до списку тем</a> 
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

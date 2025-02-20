@@ -21,3 +21,32 @@ body {
     background-color: #e2e6ea;
 }
 
+
+
+.submenu {
+    display: none;
+    list-style: none;
+    padding-left: 0;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px; /* Додаємо відступ знизу */
+}
+
+.submenu li {
+    padding: 8px 15px;
+    transition: background 0.2s;
+}
+
+.submenu li:hover {
+    background: #f8f9fa; /* Світло-сірий фон при наведенні */
+}
+
+.submenu a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+

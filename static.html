@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статика - Формули</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4" style="border: 2px solid #070011; padding: 10px; border-radius: 8px;">Статика - Формули</h1>
+        
+        <div class="form-group">
+            <label for="formulaSelect">Виберіть формулу:</label>
+            <select class="form-control" id="formulaSelect" onchange="selectFormula()">
+                <option value="">Оберіть формулу</option>
+                <option value="M = F * d">Момент сили: M = F * d</option>
+            </select>
+        </div>
+                
+<!-- Формула M = F * d -->
+<div id="momentOfForceForm" style="display: none;">
+    <div class="form-group">
+        <p>Формула визначає момент сили як добуток сили на відстань від осі обертання.<br>
+            M — момент сили, що характеризує здатність сили обертати об'єкт навколо певної осі.<br>
+            F — сила, прикладена до об'єкта.<br>
+            d — відстань від осі обертання до точки прикладання сили.
+        </p>
+        <label for="force">F (сила) [Н]</label>
+        <input type="number" class="form-control" id="force" placeholder="Введіть силу" required>
+    </div>
+    <div class="form-group">
+        <label for="distance">d (відстань) [м]</label>
+        <input type="number" class="form-control" id="distance" placeholder="Введіть відстань" required>
+    </div>
+    <button type="button" class="btn btn-primary mt-3" onclick="calculateMomentOfForce()">Обчислити момент сили</button>
+    <button class="btn btn-danger mt-3" onclick="clearFieldsMomentOfForce()">Очистити</button>
+</div>
+
+<!-- Результат -->
+<div id="resultMessage" class="mt-4" style="display: none;">
+    <div class="alert alert-info" role="alert">
+        <strong>Результат:</strong> <span id="resultText"></span>
+    </div>
+</div>
+    
+    <a href="topics.html" class="btn btn-outline-primary mt-3 w-100">Назад до списку тем</a> 
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

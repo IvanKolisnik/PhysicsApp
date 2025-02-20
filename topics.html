@@ -18,14 +18,15 @@
         
         <!-- Список тем -->
         <div class="list-group">
-            <a href="mechanics.html" class="list-group-item topic-item d-flex align-items-center">
+            <a href="#" class="list-group-item topic-item d-flex align-items-center">
                 <i class="fas fa-cogs"></i> <span class="ms-1">Механіка</span>
-                <button class="btn btn-sm btn-outline-secondary ms-auto" onclick="toggleDescription(event, 'mechanicsDesc', this)">&#9660;</button>
+                <button class="btn btn-sm btn-outline-secondary ms-auto" onclick="toggleMenu(event, 'mechanicsMenu', this)">&#9660;</button>
             </a>
-            <p id="mechanicsDesc" class="description text-muted mt-2" style="display: none;">
-                Механіка – це розділ фізики, що вивчає механічний рух тіл та зміни які відбуваються при їх взаємодії. 
-            </p>
-            
+            <ul id="mechanicsMenu" class="submenu list-group ">
+                <li class="list-group-item"><a href="kinematik.html">Кінематика</a></li>
+                <li class="list-group-item"><a href="dynamic.html">Динаміка</a></li>
+                <li class="list-group-item"><a href="static.html">Статика</a></li>
+            </ul>
             <a href="#" class="list-group-item topic-item">
                 <i class="fas fa-thermometer-half"></i> Термодинаміка
             </a>

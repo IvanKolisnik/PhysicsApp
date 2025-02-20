@@ -1,29 +1,29 @@
 function selectFormula() {
     const selectedFormula = document.getElementById('formulaSelect').value;
-    const inputFields = document.getElementById('inputFields');
-    const resultMessage = document.getElementById('resultMessage');
-    const newtonForm = document.getElementById('newtonForm');
+    console.log("Вибрана формула:", selectedFormula);
+
     const velocityForm = document.getElementById('velocityForm');
+    const newtonForm = document.getElementById('newtonForm');
     const kineticEnergyForm = document.getElementById('kineticEnergyForm');
+    const momentOfForceForm = document.getElementById('momentOfForceForm');
+    const resultMessage = document.getElementById('resultMessage');
 
 
-    // Сховати всі форми вводу
-    newtonForm.style.display = 'none';
-    velocityForm.style.display = 'none';
-    kineticEnergyForm.style.display = 'none';
+    if (velocityForm) velocityForm.style.display = 'none';
+    if (newtonForm) newtonForm.style.display = 'none';
+    if (kineticEnergyForm) kineticEnergyForm.style.display = 'none';
+    if (momentOfForceForm) momentOfForceForm.style.display = 'none';
+    if (resultMessage) resultMessage.style.display = 'none';
 
     // Вибір формули
-    if (selectedFormula === 'F = ma') {
+    if (selectedFormula.includes("F = ma") && newtonForm) {
         newtonForm.style.display = 'block';
-        resultMessage.style.display = 'none';
-    } else if (selectedFormula === 'v = Δx / Δt') {
+    } else if (selectedFormula.includes("v = Δx / Δt") && velocityForm) {
         velocityForm.style.display = 'block';
-        resultMessage.style.display = 'none';
-    } else if (selectedFormula === 'E_k = 1/2 * m * v^2') {
+    } else if (selectedFormula.includes("E_k = 1/2 * m * v^2") && kineticEnergyForm) {
         kineticEnergyForm.style.display = 'block';
-        resultMessage.style.display = 'none';
-    } else {
-        resultMessage.style.display = 'none';
+    } else if (selectedFormula === "M = F * d" && momentOfForceForm) {
+        momentOfForceForm.style.display = 'block';
     }
 }
 
@@ -95,18 +95,37 @@ function clearFields() {
     document.getElementById('resultMessage').style.display = 'none'; 
 }
 
+function toggleMenu(event, id, btn) {
+    event.preventDefault(); // Запобігає переходу за посиланням
 
-function toggleDescription(event, id, btn) {
-    event.preventDefault(); // Запобігає переходу за посиланням, якщо це необхідно
+    const menu = document.getElementById(id);
     
-    const desc = document.getElementById(id);
-    
-    // Перевірка, чи відображається опис
-    if (desc.style.display === "none") {
-        desc.style.display = "block"; // Показує опис
-        btn.innerHTML = "&#9650;"; // Змінює стрілку на вгору
+    if (menu.style.display === "none" || menu.style.display === "") {
+        menu.style.display = "block"; // Показує меню
+        btn.innerHTML = "&#9650;"; // Стрілка вгору
     } else {
-        desc.style.display = "none"; // Сховує опис
-        btn.innerHTML = "&#9660;"; // Змінює стрілку на вниз
+        menu.style.display = "none"; // Ховає меню
+        btn.innerHTML = "&#9660;"; // Стрілка вниз
     }
-} 
+}
+
+// Функція для обчислення моменту сили за формулою M = F * d
+function calculateMomentOfForce() {
+    const force = parseFloat(document.getElementById('force').value);
+    const distance = parseFloat(document.getElementById('distance').value);
+
+    if (isNaN(force) || isNaN(distance) || force <= 0 || distance <= 0) {
+        alert('Будь ласка, введіть коректні значення для сили та відстані!');
+        return;
+    }
+
+    const momentOfForce = force * distance;
+    document.getElementById('resultText').innerText = `Момент сили: ${momentOfForce} Н·м`;
+    document.getElementById('resultMessage').style.display = 'block';
+}
+
+function clearFieldsMomentOfForce() {
+    document.getElementById('force').value = '';
+    document.getElementById('distance').value = '';
+    document.getElementById('resultMessage').style.display = 'none';
+}
